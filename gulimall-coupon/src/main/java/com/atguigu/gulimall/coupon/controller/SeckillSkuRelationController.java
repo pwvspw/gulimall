@@ -20,7 +20,8 @@ import com.atguigu.common.utils.R;
 /**
  * 秒杀活动商品关联
  *
- * @author pengwei
+ * @author leifengyang
+ * @email leifengyang@gmail.com
  * @date 2019-10-08 09:36:40
  */
 @RestController

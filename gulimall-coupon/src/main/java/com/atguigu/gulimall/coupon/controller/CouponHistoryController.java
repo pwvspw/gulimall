@@ -20,7 +20,8 @@ import com.atguigu.common.utils.R;
 /**
  * 优惠券领取历史记录
  *
- * @author pengwei
+ * @author leifengyang
+ * @email leifengyang@gmail.com
  * @date 2019-10-08 09:36:40
  */
 @RestController

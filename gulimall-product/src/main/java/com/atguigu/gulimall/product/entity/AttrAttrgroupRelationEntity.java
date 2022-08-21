@@ -10,7 +10,8 @@ import lombok.Data;
 /**
  * 属性&属性分组关联
  * 
- * @author pengwei
+ * @author leifengyang
+ * @email leifengyang@gmail.com
  * @date 2019-10-01 21:08:49
  */
 @Data

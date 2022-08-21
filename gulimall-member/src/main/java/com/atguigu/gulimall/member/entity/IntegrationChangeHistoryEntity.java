@@ -10,7 +10,8 @@ import lombok.Data;
 /**
  * 积分变化历史记录
  * 
- * @author pengwei
+ * @author leifengyang
+ * @email leifengyang@gmail.com
  * @date 2019-10-08 09:47:05
  */
 @Data

@@ -7,7 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 /**
  * 库存工作单
  * 
- * @author pengwei
+ * @author leifengyang
+ * @email leifengyang@gmail.com
  * @date 2019-10-08 09:59:40
  */
 @Mapper

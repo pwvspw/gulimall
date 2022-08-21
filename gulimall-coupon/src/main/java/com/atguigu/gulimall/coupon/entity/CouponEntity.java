@@ -11,7 +11,8 @@ import lombok.Data;
 /**
  * 优惠券信息
  * 
- * @author pengwei
+ * @author leifengyang
+ * @email leifengyang@gmail.com
  * @date 2019-10-08 09:36:40
  */
 @Data

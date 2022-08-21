@@ -20,7 +20,8 @@ import com.atguigu.common.utils.R;
 /**
  * 属性&属性分组关联
  *
- * @author pengwei
+ * @author leifengyang
+ * @email leifengyang@gmail.com
  * @date 2019-10-01 22:50:32
  */
 @RestController
