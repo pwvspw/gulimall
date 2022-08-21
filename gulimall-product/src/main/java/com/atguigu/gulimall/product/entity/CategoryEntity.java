@@ -4,21 +4,17 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Data;
-
-
 
 /**
  * 商品三级分类
- * 
- * @author leifengyang
- * @email leifengyang@gmail.com
+ *
+ * @author pengwei
  * @date 2019-10-01 21:08:48
  */
 

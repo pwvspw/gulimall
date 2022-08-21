@@ -6,9 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * sku图片
- * 
- * @author leifengyang
- * @email leifengyang@gmail.com
+ *
+ * @author pengwei
  * @date 2019-10-01 21:08:49
  */
 @Mapper

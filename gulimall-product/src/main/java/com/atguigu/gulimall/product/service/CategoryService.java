@@ -1,8 +1,8 @@
 package com.atguigu.gulimall.product.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.atguigu.common.utils.PageUtils;
 import com.atguigu.gulimall.product.entity.CategoryEntity;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 import java.util.Map;
@@ -10,8 +10,7 @@ import java.util.Map;
 /**
  * 商品三级分类
  *
- * @author leifengyang
- * @email leifengyang@gmail.com
+ * @author pengwei
  * @date 2019-10-01 21:08:48
  */
 public interface CategoryService extends IService<CategoryEntity> {

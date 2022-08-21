@@ -1,27 +1,20 @@
 package com.atguigu.gulimall.product.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.atguigu.gulimall.product.entity.AttrAttrgroupRelationEntity;
-import com.atguigu.gulimall.product.service.AttrAttrgroupRelationService;
 import com.atguigu.common.utils.PageUtils;
 import com.atguigu.common.utils.R;
+import com.atguigu.gulimall.product.entity.AttrAttrgroupRelationEntity;
+import com.atguigu.gulimall.product.service.AttrAttrgroupRelationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.Map;
 
 
 /**
  * 属性&属性分组关联
  *
- * @author leifengyang
- * @email leifengyang@gmail.com
+ * @author pengwei
  * @date 2019-10-01 22:50:32
  */
 @RestController

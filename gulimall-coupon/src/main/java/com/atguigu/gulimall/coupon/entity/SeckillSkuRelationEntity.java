@@ -10,9 +10,8 @@ import lombok.Data;
 
 /**
  * 秒杀活动商品关联
- * 
- * @author leifengyang
- * @email leifengyang@gmail.com
+ *
+ * @author pengwei
  * @date 2019-10-08 09:36:40
  */
 @Data

@@ -9,8 +9,7 @@ import java.util.Map;
 /**
  * 商品阶梯价格
  *
- * @author leifengyang
- * @email leifengyang@gmail.com
+ * @author pengwei
  * @date 2019-10-08 09:36:40
  */
 public interface SkuLadderService extends IService<SkuLadderEntity> {
