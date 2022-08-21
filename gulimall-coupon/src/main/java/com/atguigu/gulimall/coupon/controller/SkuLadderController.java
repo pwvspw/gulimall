@@ -1,20 +1,14 @@
 package com.atguigu.gulimall.coupon.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.atguigu.gulimall.coupon.entity.SkuLadderEntity;
-import com.atguigu.gulimall.coupon.service.SkuLadderService;
 import com.atguigu.common.utils.PageUtils;
 import com.atguigu.common.utils.R;
+import com.atguigu.gulimall.coupon.entity.SkuLadderEntity;
+import com.atguigu.gulimall.coupon.service.SkuLadderService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.Map;
 
 
 /**
@@ -34,7 +28,7 @@ public class SkuLadderController {
      */
     @RequestMapping("/list")
     //@RequiresPermissions("coupon:skuladder:list")
-    public R list(@RequestParam Map<String, Object> params){
+    public R list(@RequestParam Map<String, Object> params) {
         PageUtils page = skuLadderService.queryPage(params);
 
         return R.ok().put("page", page);
@@ -46,8 +40,8 @@ public class SkuLadderController {
      */
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("coupon:skuladder:info")
-    public R info(@PathVariable("id") Long id){
-		SkuLadderEntity skuLadder = skuLadderService.getById(id);
+    public R info(@PathVariable("id") Long id) {
+        SkuLadderEntity skuLadder = skuLadderService.getById(id);
 
         return R.ok().put("skuLadder", skuLadder);
     }
@@ -57,8 +51,8 @@ public class SkuLadderController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("coupon:skuladder:save")
-    public R save(@RequestBody SkuLadderEntity skuLadder){
-		skuLadderService.save(skuLadder);
+    public R save(@RequestBody SkuLadderEntity skuLadder) {
+        skuLadderService.save(skuLadder);
 
         return R.ok();
     }
@@ -68,8 +62,8 @@ public class SkuLadderController {
      */
     @RequestMapping("/update")
     //@RequiresPermissions("coupon:skuladder:update")
-    public R update(@RequestBody SkuLadderEntity skuLadder){
-		skuLadderService.updateById(skuLadder);
+    public R update(@RequestBody SkuLadderEntity skuLadder) {
+        skuLadderService.updateById(skuLadder);
 
         return R.ok();
     }
@@ -79,8 +73,8 @@ public class SkuLadderController {
      */
     @RequestMapping("/delete")
     //@RequiresPermissions("coupon:skuladder:delete")
-    public R delete(@RequestBody Long[] ids){
-		skuLadderService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] ids) {
+        skuLadderService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

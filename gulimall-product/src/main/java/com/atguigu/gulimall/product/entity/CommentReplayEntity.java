@@ -15,20 +15,20 @@ import java.io.Serializable;
 @Data
 @TableName("pms_comment_replay")
 public class CommentReplayEntity implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * id
-	 */
-	@TableId
-	private Long id;
-	/**
-	 * 评论id
-	 */
-	private Long commentId;
-	/**
-	 * 回复id
-	 */
-	private Long replyId;
+    /**
+     * id
+     */
+    @TableId
+    private Long id;
+    /**
+     * 评论id
+     */
+    private Long commentId;
+    /**
+     * 回复id
+     */
+    private Long replyId;
 
 }

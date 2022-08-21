@@ -1,20 +1,14 @@
 package com.atguigu.gulimall.coupon.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.atguigu.gulimall.coupon.entity.SeckillPromotionEntity;
-import com.atguigu.gulimall.coupon.service.SeckillPromotionService;
 import com.atguigu.common.utils.PageUtils;
 import com.atguigu.common.utils.R;
+import com.atguigu.gulimall.coupon.entity.SeckillPromotionEntity;
+import com.atguigu.gulimall.coupon.service.SeckillPromotionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.Map;
 
 
 /**
@@ -34,7 +28,7 @@ public class SeckillPromotionController {
      */
     @RequestMapping("/list")
     //@RequiresPermissions("coupon:seckillpromotion:list")
-    public R list(@RequestParam Map<String, Object> params){
+    public R list(@RequestParam Map<String, Object> params) {
         PageUtils page = seckillPromotionService.queryPage(params);
 
         return R.ok().put("page", page);
@@ -46,8 +40,8 @@ public class SeckillPromotionController {
      */
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("coupon:seckillpromotion:info")
-    public R info(@PathVariable("id") Long id){
-		SeckillPromotionEntity seckillPromotion = seckillPromotionService.getById(id);
+    public R info(@PathVariable("id") Long id) {
+        SeckillPromotionEntity seckillPromotion = seckillPromotionService.getById(id);
 
         return R.ok().put("seckillPromotion", seckillPromotion);
     }
@@ -57,8 +51,8 @@ public class SeckillPromotionController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("coupon:seckillpromotion:save")
-    public R save(@RequestBody SeckillPromotionEntity seckillPromotion){
-		seckillPromotionService.save(seckillPromotion);
+    public R save(@RequestBody SeckillPromotionEntity seckillPromotion) {
+        seckillPromotionService.save(seckillPromotion);
 
         return R.ok();
     }
@@ -68,8 +62,8 @@ public class SeckillPromotionController {
      */
     @RequestMapping("/update")
     //@RequiresPermissions("coupon:seckillpromotion:update")
-    public R update(@RequestBody SeckillPromotionEntity seckillPromotion){
-		seckillPromotionService.updateById(seckillPromotion);
+    public R update(@RequestBody SeckillPromotionEntity seckillPromotion) {
+        seckillPromotionService.updateById(seckillPromotion);
 
         return R.ok();
     }
@@ -79,8 +73,8 @@ public class SeckillPromotionController {
      */
     @RequestMapping("/delete")
     //@RequiresPermissions("coupon:seckillpromotion:delete")
-    public R delete(@RequestBody Long[] ids){
-		seckillPromotionService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] ids) {
+        seckillPromotionService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

@@ -28,7 +28,7 @@ public class CouponHistoryController {
      */
     @RequestMapping("/list")
     //@RequiresPermissions("coupon:couponhistory:list")
-    public R list(@RequestParam Map<String, Object> params){
+    public R list(@RequestParam Map<String, Object> params) {
         PageUtils page = couponHistoryService.queryPage(params);
 
         return R.ok().put("page", page);
@@ -40,8 +40,8 @@ public class CouponHistoryController {
      */
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("coupon:couponhistory:info")
-    public R info(@PathVariable("id") Long id){
-		CouponHistoryEntity couponHistory = couponHistoryService.getById(id);
+    public R info(@PathVariable("id") Long id) {
+        CouponHistoryEntity couponHistory = couponHistoryService.getById(id);
 
         return R.ok().put("couponHistory", couponHistory);
     }
@@ -51,8 +51,8 @@ public class CouponHistoryController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("coupon:couponhistory:save")
-    public R save(@RequestBody CouponHistoryEntity couponHistory){
-		couponHistoryService.save(couponHistory);
+    public R save(@RequestBody CouponHistoryEntity couponHistory) {
+        couponHistoryService.save(couponHistory);
 
         return R.ok();
     }
@@ -62,8 +62,8 @@ public class CouponHistoryController {
      */
     @RequestMapping("/update")
     //@RequiresPermissions("coupon:couponhistory:update")
-    public R update(@RequestBody CouponHistoryEntity couponHistory){
-		couponHistoryService.updateById(couponHistory);
+    public R update(@RequestBody CouponHistoryEntity couponHistory) {
+        couponHistoryService.updateById(couponHistory);
 
         return R.ok();
     }
@@ -73,8 +73,8 @@ public class CouponHistoryController {
      */
     @RequestMapping("/delete")
     //@RequiresPermissions("coupon:couponhistory:delete")
-    public R delete(@RequestBody Long[] ids){
-		couponHistoryService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] ids) {
+        couponHistoryService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

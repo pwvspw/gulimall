@@ -28,7 +28,7 @@ public class MemberCollectSpuController {
      */
     @RequestMapping("/list")
     //@RequiresPermissions("member:membercollectspu:list")
-    public R list(@RequestParam Map<String, Object> params){
+    public R list(@RequestParam Map<String, Object> params) {
         PageUtils page = memberCollectSpuService.queryPage(params);
 
         return R.ok().put("page", page);
@@ -40,8 +40,8 @@ public class MemberCollectSpuController {
      */
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("member:membercollectspu:info")
-    public R info(@PathVariable("id") Long id){
-		MemberCollectSpuEntity memberCollectSpu = memberCollectSpuService.getById(id);
+    public R info(@PathVariable("id") Long id) {
+        MemberCollectSpuEntity memberCollectSpu = memberCollectSpuService.getById(id);
 
         return R.ok().put("memberCollectSpu", memberCollectSpu);
     }
@@ -51,8 +51,8 @@ public class MemberCollectSpuController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("member:membercollectspu:save")
-    public R save(@RequestBody MemberCollectSpuEntity memberCollectSpu){
-		memberCollectSpuService.save(memberCollectSpu);
+    public R save(@RequestBody MemberCollectSpuEntity memberCollectSpu) {
+        memberCollectSpuService.save(memberCollectSpu);
 
         return R.ok();
     }
@@ -62,8 +62,8 @@ public class MemberCollectSpuController {
      */
     @RequestMapping("/update")
     //@RequiresPermissions("member:membercollectspu:update")
-    public R update(@RequestBody MemberCollectSpuEntity memberCollectSpu){
-		memberCollectSpuService.updateById(memberCollectSpu);
+    public R update(@RequestBody MemberCollectSpuEntity memberCollectSpu) {
+        memberCollectSpuService.updateById(memberCollectSpu);
 
         return R.ok();
     }
@@ -73,8 +73,8 @@ public class MemberCollectSpuController {
      */
     @RequestMapping("/delete")
     //@RequiresPermissions("member:membercollectspu:delete")
-    public R delete(@RequestBody Long[] ids){
-		memberCollectSpuService.removeByIds(Arrays.asList(ids));
+    public R delete(@RequestBody Long[] ids) {
+        memberCollectSpuService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

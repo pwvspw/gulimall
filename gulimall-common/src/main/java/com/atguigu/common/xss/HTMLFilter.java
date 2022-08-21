@@ -69,8 +69,8 @@ public final class HTMLFilter {
     private static final Pattern P_BOTH_ARROWS = Pattern.compile("<>");
 
     // @xxx could grow large... maybe use sesat's ReferenceMap
-    private static final ConcurrentMap<String,Pattern> P_REMOVE_PAIR_BLANKS = new ConcurrentHashMap<String, Pattern>();
-    private static final ConcurrentMap<String,Pattern> P_REMOVE_SELF_BLANKS = new ConcurrentHashMap<String, Pattern>();
+    private static final ConcurrentMap<String, Pattern> P_REMOVE_PAIR_BLANKS = new ConcurrentHashMap<String, Pattern>();
+    private static final ConcurrentMap<String, Pattern> P_REMOVE_SELF_BLANKS = new ConcurrentHashMap<String, Pattern>();
 
     /** set of allowed html elements, along with allowed attributes for each element **/
     private final Map<String, List<String>> vAllowed;
@@ -94,13 +94,13 @@ public final class HTMLFilter {
     /** flag determining whether comments are allowed in input String. */
     private final boolean stripComment;
     private final boolean encodeQuotes;
-    private boolean vDebug = false;
     /**
      * flag determining whether to try to make tags when presented with "unbalanced"
      * angle brackets (e.g. "<b text </b>" becomes "<b> text </b>").  If set to false,
      * unbalanced angle brackets will be html escaped.
      */
     private final boolean alwaysMakeTags;
+    private boolean vDebug = false;
 
     /** Default constructor.
      *
@@ -152,7 +152,7 @@ public final class HTMLFilter {
      *
      * @param conf map containing configuration. keys match field names.
      */
-    public HTMLFilter(final Map<String,Object> conf) {
+    public HTMLFilter(final Map<String, Object> conf) {
 
         assert conf.containsKey("vAllowed") : "configuration requires vAllowed";
         assert conf.containsKey("vSelfClosingTags") : "configuration requires vSelfClosingTags";
@@ -171,19 +171,9 @@ public final class HTMLFilter {
         vProtocolAtts = (String[]) conf.get("vProtocolAtts");
         vRemoveBlanks = (String[]) conf.get("vRemoveBlanks");
         vAllowedEntities = (String[]) conf.get("vAllowedEntities");
-        stripComment =  conf.containsKey("stripComment") ? (Boolean) conf.get("stripComment") : true;
+        stripComment = conf.containsKey("stripComment") ? (Boolean) conf.get("stripComment") : true;
         encodeQuotes = conf.containsKey("encodeQuotes") ? (Boolean) conf.get("encodeQuotes") : true;
         alwaysMakeTags = conf.containsKey("alwaysMakeTags") ? (Boolean) conf.get("alwaysMakeTags") : true;
-    }
-
-    private void reset() {
-        vTagCounts.clear();
-    }
-
-    private void debug(final String msg) {
-        if (vDebug) {
-            Logger.getAnonymousLogger().info(msg);
-        }
     }
 
     //---------------------------------------------------------------
@@ -201,7 +191,32 @@ public final class HTMLFilter {
         return result;
     }
 
+    private static String regexReplace(final Pattern regex_pattern, final String replacement, final String s) {
+        Matcher m = regex_pattern.matcher(s);
+        return m.replaceAll(replacement);
+    }
+
+    private static boolean inArray(final String s, final String[] array) {
+        for (String item : array) {
+            if (item != null && item.equals(s)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     //---------------------------------------------------------------
+
+    private void reset() {
+        vTagCounts.clear();
+    }
+
+    private void debug(final String msg) {
+        if (vDebug) {
+            Logger.getAnonymousLogger().info(msg);
+        }
+    }
+
     /**
      * given a user submitted input String, filter out any invalid or restricted
      * html.
@@ -235,11 +250,11 @@ public final class HTMLFilter {
         return s;
     }
 
-    public boolean isAlwaysMakeTags(){
+    public boolean isAlwaysMakeTags() {
         return alwaysMakeTags;
     }
 
-    public boolean isStripComments(){
+    public boolean isStripComments() {
         return stripComment;
     }
 
@@ -309,22 +324,17 @@ public final class HTMLFilter {
     private String processRemoveBlanks(final String s) {
         String result = s;
         for (String tag : vRemoveBlanks) {
-            if(!P_REMOVE_PAIR_BLANKS.containsKey(tag)){
+            if (!P_REMOVE_PAIR_BLANKS.containsKey(tag)) {
                 P_REMOVE_PAIR_BLANKS.putIfAbsent(tag, Pattern.compile("<" + tag + "(\\s[^>]*)?></" + tag + ">"));
             }
             result = regexReplace(P_REMOVE_PAIR_BLANKS.get(tag), "", result);
-            if(!P_REMOVE_SELF_BLANKS.containsKey(tag)){
+            if (!P_REMOVE_SELF_BLANKS.containsKey(tag)) {
                 P_REMOVE_SELF_BLANKS.putIfAbsent(tag, Pattern.compile("<" + tag + "(\\s[^>]*)?/>"));
             }
             result = regexReplace(P_REMOVE_SELF_BLANKS.get(tag), "", result);
         }
 
         return result;
-    }
-
-    private static String regexReplace(final Pattern regex_pattern, final String replacement, final String s) {
-        Matcher m = regex_pattern.matcher(s);
-        return m.replaceAll(replacement);
     }
 
     private String processTag(final String s) {
@@ -371,9 +381,9 @@ public final class HTMLFilter {
                     paramName = paramNames.get(ii).toLowerCase();
                     paramValue = paramValues.get(ii);
 
-//          debug( "paramName='" + paramName + "'" );
-//          debug( "paramValue='" + paramValue + "'" );
-//          debug( "allowed? " + vAllowed.get( name ).contains( paramName ) );
+                    //          debug( "paramName='" + paramName + "'" );
+                    //          debug( "paramValue='" + paramValue + "'" );
+                    //          debug( "allowed? " + vAllowed.get( name ).contains( paramName ) );
 
                     if (allowedAttribute(name, paramName)) {
                         if (inArray(paramName, vProtocolAtts)) {
@@ -409,7 +419,7 @@ public final class HTMLFilter {
         // comments
         m = P_COMMENT.matcher(s);
         if (!stripComment && m.find()) {
-            return  "<" + m.group() + ">";
+            return "<" + m.group() + ">";
         }
 
         return "";
@@ -483,8 +493,8 @@ public final class HTMLFilter {
         return encodeQuotes(buf.toString());
     }
 
-    private String encodeQuotes(final String s){
-        if(encodeQuotes){
+    private String encodeQuotes(final String s) {
+        if (encodeQuotes) {
             StringBuffer buf = new StringBuffer();
             Matcher m = P_VALID_QUOTES.matcher(s);
             while (m.find()) {
@@ -495,7 +505,7 @@ public final class HTMLFilter {
             }
             m.appendTail(buf);
             return buf.toString();
-        }else{
+        } else {
             return s;
         }
     }
@@ -503,21 +513,12 @@ public final class HTMLFilter {
     private String checkEntity(final String preamble, final String term) {
 
         return ";".equals(term) && isValidEntity(preamble)
-                ? '&' + preamble
-                : "&amp;" + preamble;
+                       ? '&' + preamble
+                       : "&amp;" + preamble;
     }
 
     private boolean isValidEntity(final String entity) {
         return inArray(entity, vAllowedEntities);
-    }
-
-    private static boolean inArray(final String s, final String[] array) {
-        for (String item : array) {
-            if (item != null && item.equals(s)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     private boolean allowed(final String name) {
