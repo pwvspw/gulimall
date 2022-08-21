@@ -24,8 +24,7 @@ import com.atguigu.common.utils.R;
 /**
  * 属性分组
  *
- * @author leifengyang
- * @email leifengyang@gmail.com
+ * @author pengwei
  * @date 2019-10-01 22:50:32
  */
 @RestController

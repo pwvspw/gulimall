@@ -10,8 +10,7 @@ import lombok.Data;
 /**
  * spu属性值
  * 
- * @author leifengyang
- * @email leifengyang@gmail.com
+ * @author pengwei
  * @date 2019-10-01 21:08:49
  */
 @Data

@@ -10,8 +10,7 @@ import java.util.List;
 /**
  * 属性&属性分组关联
  * 
- * @author leifengyang
- * @email leifengyang@gmail.com
+ * @author pengwei
  * @date 2019-10-01 21:08:49
  */
 @Mapper
