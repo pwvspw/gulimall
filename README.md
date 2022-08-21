@@ -11,6 +11,6 @@
 - SpringCLoud Alibaba Seata：分布式事务解决方案
 - 
 ## 版本
-SpringBoot： 2.2.2.RELEASE
-SpringC loud: Hoxton.SR1
-SpringCloud Alibaba: 2.1.0.RELEASE
+- SpringBoot： 2.2.2.RELEASE
+- SpringC loud: Hoxton.SR1
+- SpringCloud Alibaba: 2.1.0.RELEASE
