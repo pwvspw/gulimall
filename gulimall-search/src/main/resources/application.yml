@@ -1,0 +1,20 @@
+server:
+  port: 12000
+
+spring:
+  application:
+    name: gulimall-search
+
+logging:
+  level:
+    com.atguigu.gulimall.search: debug
+    root: warn
+  pattern:
+    console: "%d{yyyy-MM-dd} [%thread] - %msg%n"
+
+#暴露所有端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
