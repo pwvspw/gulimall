@@ -35,6 +35,14 @@
             <scope>test</scope>
         </dependency>
 
+        <!--使用 redssion 作为分布式锁-->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.17.6</version>
+        </dependency>
+
+
         <!--        <dependency>-->
         <!--            <groupId>com.aliyun.oss</groupId>-->
         <!--            <artifactId>aliyun-sdk-oss</artifactId>-->
