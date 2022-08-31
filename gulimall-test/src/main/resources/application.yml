@@ -1,0 +1,28 @@
+server:
+  port: 20000
+
+spring:
+  application:
+    name: gulimall-test
+
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/gulimall_pms
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+logging:
+  level:
+    com.atguigu.gulimall: debug
+
